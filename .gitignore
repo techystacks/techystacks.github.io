@@ -1,0 +1,14 @@
+# Hugo build output
+/public/
+/resources/
+.hugo_build.lock
+
+# Editor swap / backup files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# IDE
+.idea/
+.vscode/

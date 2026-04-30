@@ -1,0 +1,9 @@
+baseURL = "https://techystacks.github.io/"
+locale = "ko-kr"
+title = "Techy Stack"
+theme = "PaperMod"
+
+[params]
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowCodeCopyButtons = true
