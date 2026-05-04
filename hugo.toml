@@ -1,9 +1,150 @@
 baseURL = "https://techystacks.github.io/"
 locale = "ko-kr"
+defaultContentLanguage = "ko"
 title = "Techy Stack"
-theme = "PaperMod"
+theme = "stack"
 
+# Hugo Stack 테마는 post(단수)를 기본으로 쓰지만
+# 우리 저장소는 posts(복수)를 쓰고 있으므로 mainSections로 지정
 [params]
-  defaultTheme = "auto"
-  ShowReadingTime = true
-  ShowCodeCopyButtons = true
+  mainSections = ["posts"]
+  featuredImageField = "image"
+  rssFullContent = true
+  favicon = ""
+
+  [params.footer]
+    since = 2026
+    customText = ""
+
+  [params.dateFormat]
+    published = "2006년 1월 2일"
+    lastUpdated = "2006년 1월 2일 15:04"
+
+  [params.sidebar]
+    compact = false
+    emoji = "⚙️"
+    subtitle = "Kubernetes, 파라미터 하나의 뒷면 — 매일 한 편씩 파고드는 개인 기록"
+    avatar = "https://avatars.githubusercontent.com/u/583231?v=4"
+
+  [params.article]
+    math = false
+    toc = true
+    readingTime = true
+
+    [params.article.license]
+      enabled = false
+      default = "Licensed under CC BY-NC-SA 4.0"
+
+  [params.comments]
+    enabled = false
+
+  # 사이드바/오른쪽 위젯
+  [params.widgets]
+    homepage = [
+      { type = "search" },
+      { type = "archives", params = { limit = 5 } },
+      { type = "categories", params = { limit = 10 } },
+      { type = "tag-cloud", params = { limit = 20 } },
+    ]
+    page = [
+      { type = "toc" },
+    ]
+
+  [params.opengraph]
+    [params.opengraph.twitter]
+      site = ""
+      card = "summary_large_image"
+
+  [params.defaultImage]
+    [params.defaultImage.opengraph]
+      enabled = false
+      local = false
+      src = ""
+
+  [params.colorScheme]
+    toggle = true
+    default = "auto"
+
+  [params.imageProcessing]
+    [params.imageProcessing.cover]
+      enabled = true
+    [params.imageProcessing.content]
+      enabled = true
+
+# 상단 메뉴
+[[menu.main]]
+  identifier = "home"
+  name = "홈"
+  url = "/"
+  weight = -100
+  [menu.main.params]
+    icon = "home"
+
+[[menu.main]]
+  identifier = "archives"
+  name = "아카이브"
+  url = "/archives/"
+  weight = -90
+  [menu.main.params]
+    icon = "archives"
+
+[[menu.main]]
+  identifier = "categories"
+  name = "카테고리"
+  url = "/categories/"
+  weight = -80
+  [menu.main.params]
+    icon = "categories"
+
+[[menu.main]]
+  identifier = "tags"
+  name = "태그"
+  url = "/tags/"
+  weight = -70
+  [menu.main.params]
+    icon = "tag"
+
+[[menu.main]]
+  identifier = "about"
+  name = "소개"
+  url = "/about/"
+  weight = -60
+  [menu.main.params]
+    icon = "user"
+
+# 소셜 링크 (사이드바 하단)
+[[menu.social]]
+  identifier = "github"
+  name = "GitHub"
+  url = "https://github.com/techystacks"
+  [menu.social.params]
+    icon = "brand-github"
+
+[related]
+  includeNewer = true
+  threshold = 60
+  toLower = false
+
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+
+  [[related.indices]]
+    name = "categories"
+    weight = 200
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    endLevel = 4
+    ordered = true
+    startLevel = 2
+  [markup.highlight]
+    noClasses = false
+    codeFonts = true
+    guessSyntax = true
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    tabWidth = 2
